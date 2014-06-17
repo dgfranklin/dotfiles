@@ -1,0 +1,13 @@
+[user]
+	email = dgfranklin@gmail.com
+	name = David Franklin
+[core]
+	excludesfile = /Users/dgfranklin/.gitignore
+[push]
+    default = simple
+[alias]
+    hist = log --all --oneline --graph --decorate
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
