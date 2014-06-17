@@ -1,1 +1,1 @@
-source /Users/dgfranklin/.bashrc
+source $HOME/.bashrc
