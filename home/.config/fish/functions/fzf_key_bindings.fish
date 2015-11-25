@@ -1,1 +1,1 @@
-/usr/local/google/home/dgfranklin/.fzf/shell/key-bindings.fish
+../../../../fzf/shell/key-bindings.fish
