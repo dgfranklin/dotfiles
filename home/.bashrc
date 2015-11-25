@@ -6,3 +6,5 @@ set -o vi
 if [ -f ~/.bashrc_local ]; then
   source ~/.bashrc_local
 fi
+
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"

@@ -25,3 +25,5 @@ export FZF_DEFAULT_COMMAND='ag -i --nocolor --nogroup --hidden
 if [ -f ~/.zshrc_local ]; then
         source ~/.zshrc_local
     fi
+
+source "$HOME/.homesick/repos/homeshick/homeshick.sh"
