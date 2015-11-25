@@ -40,7 +40,7 @@ if exists('+breakindent')
     set showbreak=..
 endif
 if exists('+cc')
-    set cc=80
+    set cc=+1
 else
     au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
