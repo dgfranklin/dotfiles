@@ -10,4 +10,6 @@
 [diff]
 	tool = vimdiff
 [merge]
-	tool = vimdiff
+    tool = vimdiff
+[include]
+    path = ~/.gitconfig_local

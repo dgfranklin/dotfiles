@@ -1,15 +1,3 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
@@ -31,6 +19,9 @@ export FZF_DEFAULT_COMMAND='ag -i --nocolor --nogroup --hidden
       \ --ignore .hg
       \ --ignore .DS_Store
       \ --ignore "**/*.pyc"
-      \ --ignore .git5_specs
       \ --ignore review
       \ --g ""'
+
+if [ -f ~/.zshrc_local ]; then
+        source ~/.zshrc_local
+    fi
