@@ -1,3 +1,6 @@
 [submodule "fishmarks"]
 	path = fishmarks
 	url = http://github.com/techwizrd/fishmarks.git
+[submodule "fzf"]
+	path = fzf
+	url = git@github.com:junegunn/fzf.git
