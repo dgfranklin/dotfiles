@@ -15,5 +15,6 @@ set -x MANPATH $HOME/.linuxbrew/share/man $MANPATH
 set -x INFOPATH $HOME/.linuxbrew/share/info $INFOPATH
 
 # Load fishmarks (http://github.com/techwizrd/fishmarks)
-. ~/.fishmarks/marks.fish
-source "$HOME/.homesick/repos/homeshick/completions/homeshick.fish"
+source ~/.fishmarks/marks.fish
+
+source "$HOME/.homesick/repos/homeshick/homeshick.fish"
