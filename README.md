@@ -10,4 +10,4 @@ There is a relatively untested install script that you can use to bootstrap this
 
 ```console
 $ bash <(curl https://raw.githubusercontent.com/dgfranklin/dotfiles/master/install.sh)
-```console
+```
