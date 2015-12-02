@@ -17,5 +17,5 @@ if test -e "$HOME/.homesick/repos/homeshick/homeshick.fish"
 end
 
 if test -e $HOME/.config/fish/config_local.fish
-  source $HOME/.config/fish/.config_local.fish
+  source $HOME/.config/fish/config_local.fish
 end
