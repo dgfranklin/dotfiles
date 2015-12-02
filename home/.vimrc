@@ -135,7 +135,7 @@ endif
 
 " Mouse
 set mouse+=a
-if &term =~ '^screen'
+if &term =~ '^screen' && !has('nvim')
     " tmux knows the extended mouse mode
     set ttymouse=xterm2
 endif
