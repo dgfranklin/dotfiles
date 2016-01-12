@@ -2,11 +2,12 @@ set shell=/bin/zsh
 
 " Setting up Vundle - the vim plugin bundler
 " Load vim-plug
-if empty(glob("~/.vim/autoload/plug.vim"))
-    execute '!curl -fLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
-    let install_bundles=0
+let plug_path = has('nvim') ? "~/.config/nvim/autoload/plug.vim" : "~/.vim/autoload/plug.vim"
+if empty(glob(plug_path))
+         execute '!curl -fLo ' . plug_path . ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+         let install_bundles=0
 endif
-
+"
 set nocompatible
 
 "Bundle 'lervag/vim-latex'
