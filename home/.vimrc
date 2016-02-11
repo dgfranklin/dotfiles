@@ -19,6 +19,8 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'easymotion/vim-easymotion'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'Konfekt/FastFold'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tomtom/tcomment_vim'
@@ -26,9 +28,16 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-unimpaired'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-call plug#end()
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
+" Source env-specific plugins (since we can only have 1)
+let env_specific_plug_source=expand('~/.vimrc_plug_local')
+if filereadable(env_specific_plug_source)
+    execute 'source '.fnameescape(env_specific_plug_source)
+endif
+
+call plug#end()
 
 syntax enable
 set background=dark
@@ -55,7 +64,6 @@ set relativenumber
 set number
 
 "" Search
-"set incsearch
 set ignorecase
 set smartcase
 
@@ -63,10 +71,8 @@ set backspace=indent,eol,start
 
 set ruler
 
-"""  Folding
 set foldmethod=syntax
-set foldlevel=99
-
+let g:fastfold_fold_command_suffixes = []
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -104,7 +110,6 @@ hi link EasyMotionTarget2Second ErrorMsg
 hi link EasyMotionMoveHL Search
 hi link EasyMotionIncSearch Search
 
-
 ""
 " Tab completion of filenames
 ""
@@ -123,13 +128,23 @@ let g:EclimCompletionMethod = 'omnifunc'
 """
 " => FZF
 """
-nnoremap <C-P> :FZF<CR>
 let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
+function! FZFExecute()
+  " Remove trailing new line to make it work with tmux splits
+  let directory = substitute(system('git rev-parse --show-toplevel'), '\n$', '', '')
+  if !v:shell_error
+    call fzf#run({'sink': 'e', 'dir': directory, 'source': 'git ls-files', 'tmux_height': '40%'})
+  else
+    FZF
+  endif
+endfunction
+command! FZFExecute call FZFExecute()
+nnoremap <C-P> :FZFExecute<CR>
 
 " """
 " => Environment
 " """
-let env_specific_source=expand('~/.vim/env-specific/env.vim')
+let env_specific_source=expand('~/.vimrc_local')
 if filereadable(env_specific_source)
     execute 'source '.fnameescape(env_specific_source)
 endif
@@ -141,17 +156,14 @@ if &term =~ '^screen' && !has('nvim')
     set ttymouse=xterm2
 endif
 "
+" Powerline specific settings
+set hidden
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+nmap <leader>- <Plug>AirlineSelectPrevTab
+nmap <leader>+ <Plug>AirlineSelectNextTab
+set laststatus=2 " Always display the statusline in all windows
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
-"" Termninal
-"
-if has('nvim')
-  tnoremap <Esc> <C-\><C-n>
-  tnoremap <A-h> <C-\><C-n><C-w>h
-  tnoremap <A-j> <C-\><C-n><C-w>j
-  tnoremap <A-k> <C-\><C-n><C-w>k
-  tnoremap <A-l> <C-\><C-n><C-w>l
-  nnoremap <A-h> <C-w>h
-  nnoremap <A-j> <C-w>j
-  nnoremap <A-k> <C-w>k
-  nnoremap <A-l> <C-w>l
-endif
+
