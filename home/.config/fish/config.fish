@@ -1,7 +1,3 @@
-fish_vi_mode
-set fish_bind_mode insert
-set fish_key_bindings fish_user_key_bindings
-
 set -x FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 set -x EDITOR vim
 set -x P4DIFF "vimdiff -R"
