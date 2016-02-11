@@ -1,12 +1,34 @@
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='vim'
+export VISUAL='vim'
+export EDITOR='$VISUAL'
+export P4DIFF='vimdiff -R'
+export P4MERGE='vimdiff'
+
+
+# load zgen
+source "${HOME}/zgen/zgen.zsh"
+
+# check if there's no init script
+if ! zgen saved; then
+    echo "Creating a zgen save"
+
+    zgen prezto
+    zgen prezto environment
+    zgen prezto terminal
+    zgen prezto editor
+    zgen prezto history
+    zgen prezto spectrum
+    zgen prezto completion
+    zgen prezto prompt
+
+    #bulk load
+    zgen loadall <<EOPLUGINS
+    joel-porquet/zsh-dircolors-solarized
+    Tarrasch/zsh-bd
+EOPLUGINS
+    # save all to init script
+    zgen save
 fi
 
-zstyle ':completion:*' hosts off
-zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
@@ -23,7 +45,7 @@ export FZF_DEFAULT_COMMAND='ag -i --nocolor --nogroup --hidden
       \ --g ""'
 
 if [ -f ~/.zshrc_local ]; then
-        source ~/.zshrc_local
-    fi
+         source ~/.zshrc_local
+fi
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
