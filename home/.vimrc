@@ -30,6 +30,7 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'rking/ag.vim'
 
 " Source env-specific plugins (since we can only have 1)
 let env_specific_plug_source=expand('~/.vimrc_plug_local')
@@ -73,6 +74,7 @@ set ruler
 
 set foldmethod=syntax
 let g:fastfold_fold_command_suffixes = []
+set nofoldenable 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -165,5 +167,3 @@ nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
 set laststatus=2 " Always display the statusline in all windows
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
-
-
