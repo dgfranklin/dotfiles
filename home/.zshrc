@@ -1,9 +1,3 @@
-export VISUAL='vim'
-export EDITOR='$VISUAL'
-export P4DIFF='vimdiff -R'
-export P4MERGE='vimdiff'
-
-
 # load zgen
 source "${HOME}/zgen/zgen.zsh"
 
@@ -32,7 +26,6 @@ fi
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # Speed up FZF
 #
 export FZF_DEFAULT_COMMAND='ag -i --nocolor --nogroup --hidden
@@ -48,4 +41,16 @@ if [ -f ~/.zshrc_local ]; then
          source ~/.zshrc_local
 fi
 
+# Use ls_colors
+eval `dircolors $HOME/.dircolors`
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+alias ls="ls -F --color"
+
+export VISUAL='vim'
+export EDITOR='$VISUAL'
+export P4DIFF='vimdiff -R'
+export P4MERGE='vimdiff'
+bindkey -v
+
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
