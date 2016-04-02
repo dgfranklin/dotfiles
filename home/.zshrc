@@ -37,20 +37,19 @@ export FZF_DEFAULT_COMMAND='ag -i --nocolor --nogroup --hidden
       \ --ignore review
       \ --g ""'
 
-if [ -f ~/.zshrc_local ]; then
-         source ~/.zshrc_local
-fi
-
-# Use ls_colors
-eval `dircolors $HOME/.dircolors`
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-alias ls="ls -F --color"
-
 export VISUAL='vim'
 export EDITOR='$VISUAL'
 export P4DIFF='vimdiff -R'
 export P4MERGE='vimdiff'
 bindkey -v
 
+envfile="$HOME/.zshrc.`uname`"
+[ -f $envfile ] && source $envfile
+
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if [ -f ~/.zshrc_local ]; then
+         source ~/.zshrc_local
+fi
+
