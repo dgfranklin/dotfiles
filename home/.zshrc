@@ -6,6 +6,7 @@ if ! zgen saved; then
     echo "Creating a zgen save"
 
     zgen prezto
+    zgen prezto prompt theme 'sorin'
     zgen prezto environment
     zgen prezto terminal
     zgen prezto editor
@@ -23,6 +24,7 @@ EOPLUGINS
     zgen save
 fi
 
+zstyle ':prezto:module:prompt' theme 'sorin'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
