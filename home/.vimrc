@@ -13,7 +13,6 @@ set nocompatible
 "Bundle 'lervag/vim-latex'
 "Plugin 'DoxygenToolkit.vim'
 "Plugin 'LaTeX-Box-Team/LaTeX-Box'
-"Plugin 'majutsushi/tagbar'
 call plug#begin()
 Plug 'altercation/vim-colors-solarized'
 Plug 'bronson/vim-trailing-whitespace'
@@ -21,6 +20,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'Konfekt/FastFold'
+Plug 'majutsushi/tagbar'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tomtom/tcomment_vim'
@@ -74,7 +74,6 @@ set ruler
 
 set foldmethod=syntax
 let g:fastfold_fold_command_suffixes = []
-set nofoldenable 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -82,10 +81,8 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
-set smarttab
 set lbr
 set ai "Auto indent
-set si "Smart indent
 set wrap "Wrap lines
 
 
@@ -93,7 +90,7 @@ set wrap "Wrap lines
 " => Key Bindings
 """""""""""""""""""""""
 nmap <F2> :NERDTreeToggle<CR>
-nmap <F8> :TagbarToggle<CR>S
+nmap <F8> :TagbarToggle<CR>
 let mapleader = ","
 
 "" Easy Motion
