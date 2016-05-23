@@ -14,6 +14,7 @@ if ! zgen saved; then
     zgen prezto spectrum
     zgen prezto completion
     zgen prezto prompt
+    zgen prezto utility
 
     #bulk load
     zgen loadall <<EOPLUGINS
@@ -45,10 +46,14 @@ export P4DIFF='vimdiff -R'
 export P4MERGE='vimdiff'
 bindkey -v
 
+# Pass non-matching regexes on instead of producing an error. Useful for git revisions.
+unsetopt nomatch
+
 envfile="$HOME/.zshrc.`uname`"
 [ -f $envfile ] && source $envfile
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+printf '\nhomeshick --quiet refresh'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if [ -f ~/.zshrc_local ]; then
