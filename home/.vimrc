@@ -18,10 +18,12 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'easymotion/vim-easymotion'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf',
 Plug 'Konfekt/FastFold'
 Plug 'majutsushi/tagbar'
+Plug 'leafgarland/typescript-vim'
 Plug 'nelstrom/vim-visual-star-search'
+Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-abolish'
@@ -30,7 +32,9 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'rking/ag.vim'
+Plug 'fmoralesc/vim-pad'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 " Source env-specific plugins (since we can only have 1)
 let env_specific_plug_source=expand('~/.vimrc_plug_local')
@@ -43,6 +47,7 @@ call plug#end()
 syntax enable
 set background=dark
 set spell
+let g:solarized_termcolors=16
 colorscheme solarized
 
 if exists('+breakindent')
@@ -164,3 +169,5 @@ nmap <leader>- <Plug>AirlineSelectPrevTab
 nmap <leader>+ <Plug>AirlineSelectNextTab
 set laststatus=2 " Always display the statusline in all windows
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+
+iab <expr> ddate strftime("%Y_%m_%d")

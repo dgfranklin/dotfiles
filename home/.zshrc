@@ -31,20 +31,17 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 
 # Speed up FZF
 #
-export FZF_DEFAULT_COMMAND='ag -i --nocolor --nogroup --hidden
-      \ --ignore .git
-      \ --ignore .svn
-      \ --ignore .hg
-      \ --ignore .DS_Store
-      \ --ignore "**/*.pyc"
-      \ --ignore review
-      \ --g ""'
+export FZF_DEFAULT_COMMAND=$HOME/.fzf_default_command
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export VISUAL='vim'
 export EDITOR='$VISUAL'
 export P4DIFF='vimdiff -R'
 export P4MERGE='vimdiff'
 bindkey -v
+
+autoload run-help
+HELPDIR=/usr/local/google/home/dgfranklin/.linuxbrew/share/zsh/help
 
 # Pass non-matching regexes on instead of producing an error. Useful for git revisions.
 unsetopt nomatch
@@ -53,7 +50,6 @@ envfile="$HOME/.zshrc.`uname`"
 [ -f $envfile ] && source $envfile
 
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-printf '\nhomeshick --quiet refresh'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if [ -f ~/.zshrc_local ]; then

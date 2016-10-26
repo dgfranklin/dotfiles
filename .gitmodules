@@ -1,9 +1,9 @@
 [submodule "fishmarks"]
 	path = fishmarks
 	url = http://github.com/techwizrd/fishmarks.git
-[submodule "fzf"]
-	path = fzf
-	url = git@github.com:junegunn/fzf.git
 [submodule "zgen"]
 	path = zgen
 	url = git@github.com:tarjoilija/zgen.git
+[submodule "home/.fzf"]
+	path = home/.fzf
+	url = https://github.com/junegunn/fzf.git
