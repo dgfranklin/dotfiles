@@ -10,9 +10,6 @@ endif
 "
 set nocompatible
 
-"Bundle 'lervag/vim-latex'
-"Plugin 'DoxygenToolkit.vim'
-"Plugin 'LaTeX-Box-Team/LaTeX-Box'
 call plug#begin()
 Plug 'altercation/vim-colors-solarized'
 Plug 'bronson/vim-trailing-whitespace'
@@ -44,7 +41,7 @@ endif
 
 call plug#end()
 
-syntax enable
+syntax on
 set background=dark
 set spell
 let g:solarized_termcolors=16
@@ -110,7 +107,7 @@ map  N <Plug>(easymotion-prev)
 hi link EasyMotionTarget ErrorMsg
 hi link EasyMotionShade Comment
 hi link EasyMotionTarget2First ErrorMsg
-hi link EasyMotionTarget2Second ErrorMsg
+
 hi link EasyMotionMoveHL Search
 hi link EasyMotionIncSearch Search
 
