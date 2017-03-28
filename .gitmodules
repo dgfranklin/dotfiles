@@ -6,7 +6,7 @@
 	url = git@github.com:tarjoilija/zgen.git
 [submodule "fzf"]
 	path = fzf
-	url = https://github.com/junegunn/fzf.git
+	url = https://github.com/junegunn/fzf
 [submodule "zplug"]
 	path = zplug
 	url = https://github.com/zplug/zplug
