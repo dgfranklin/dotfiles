@@ -42,7 +42,7 @@ endif
 call plug#end()
 
 syntax on
-set background=dark
+set background=light
 set spell
 let g:solarized_termcolors=16
 colorscheme solarized

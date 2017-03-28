@@ -1,31 +1,18 @@
-# load zgen
-source "${HOME}/zgen/zgen.zsh"
+# load zplug
+source "${HOME}/.zplug/init.zsh"
 
-# check if there's no init script
-if ! zgen saved; then
-    echo "Creating a zgen save"
+zplug "Tarrasch/zsh-bd"
+zplug "themes/sorin", as:theme, from:oh-my-zsh
 
-    zgen prezto
-    zgen prezto prompt theme 'sorin'
-    zgen prezto environment
-    zgen prezto terminal
-    zgen prezto editor
-    zgen prezto history
-    zgen prezto spectrum
-    zgen prezto completion
-    zgen prezto prompt
-    zgen prezto utility
-
-    #bulk load
-    zgen loadall <<EOPLUGINS
-    joel-porquet/zsh-dircolors-solarized
-    Tarrasch/zsh-bd
-EOPLUGINS
-    # save all to init script
-    zgen save
+# zplug check returns true if all packages are installed
+# Therefore, when it returns false, run zplug install
+if ! zplug check; then
+    zplug install
 fi
 
-zstyle ':prezto:module:prompt' theme 'sorin'
+# source plugins and add commands to the PATH
+zplug load
+
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
@@ -38,7 +25,9 @@ export VISUAL='vim'
 export EDITOR='$VISUAL'
 export P4DIFF='vimdiff -R'
 export P4MERGE='vimdiff'
+
 bindkey -v
+bindkey '^?' backward-delete-char
 
 autoload run-help
 HELPDIR=/usr/local/google/home/dgfranklin/.linuxbrew/share/zsh/help
@@ -53,6 +42,7 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if [ -f ~/.zshrc_local ]; then
-         source ~/.zshrc_local
+    source ~/.zshrc_local
 fi
 
+homeshick --quiet refresh
