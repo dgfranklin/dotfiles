@@ -3,6 +3,8 @@ source "${HOME}/.zplug/init.zsh"
 
 zplug "Tarrasch/zsh-bd"
 zplug "themes/sorin", as:theme, from:oh-my-zsh
+zplug "modules/utility", from:prezto
+
 
 # zplug check returns true if all packages are installed
 # Therefore, when it returns false, run zplug install
@@ -25,6 +27,10 @@ export VISUAL='vim'
 export EDITOR='$VISUAL'
 export P4DIFF='vimdiff -R'
 export P4MERGE='vimdiff'
+
+export HISTFILE="$HOME/.zhistory"
+setopt inc_append_history
+
 
 bindkey -v
 bindkey '^?' backward-delete-char
