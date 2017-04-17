@@ -32,6 +32,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'fmoralesc/vim-pad'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'Alok/notational-fzf-vim'
+Plug 'JamshedVesuna/vim-markdown-preview'
 
 " Source env-specific plugins (since we can only have 1)
 let env_specific_plug_source=expand('~/.vimrc_plug_local')
@@ -44,7 +46,6 @@ call plug#end()
 syntax on
 set background=light
 set spell
-let g:solarized_termcolors=16
 colorscheme solarized
 
 if exists('+breakindent')
@@ -168,3 +169,6 @@ set laststatus=2 " Always display the statusline in all windows
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
 iab <expr> ddate strftime("%Y_%m_%d")
+
+let g:nv_directories = ['~/nv']
+let vim_markdown_preview_github=1
