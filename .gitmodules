@@ -1,12 +1,6 @@
-[submodule "fishmarks"]
-	path = fishmarks
-	url = http://github.com/techwizrd/fishmarks.git
-[submodule "zgen"]
-	path = zgen
-	url = git@github.com:tarjoilija/zgen.git
-[submodule "fzf"]
-	path = fzf
-	url = https://github.com/junegunn/fzf
 [submodule "zplug"]
 	path = zplug
 	url = https://github.com/zplug/zplug
+[submodule "fzf"]
+	path = fzf
+	url = git@github.com:junegunn/fzf.git
