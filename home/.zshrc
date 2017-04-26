@@ -51,4 +51,7 @@ if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
 fi
 
+# Must happen after local path updated to include powerline (if installed).
+[ -f ~/.powerline/bindings/zsh/powerline.zsh ] && source ~/.powerline/bindings/zsh/powerline.zsh
+
 homeshick --quiet refresh
