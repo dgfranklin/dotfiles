@@ -4,6 +4,7 @@ source "${HOME}/.zplug/init.zsh"
 zplug "Tarrasch/zsh-bd"
 zplug "themes/sorin", as:theme, from:oh-my-zsh
 zplug "lib/history", from:oh-my-zsh
+zplug "lib/clipboard", from:oh-my-zsh
 zplug "modules/utility", from:prezto
 
 
