@@ -36,6 +36,10 @@ export HISTFILE="$HOME/.zhistory"
 bindkey -v
 bindkey '^?' backward-delete-char
 
+# Use 'v' to edit commands in vim
+autoload edit-command-line; zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+
 autoload run-help
 HELPDIR=/usr/local/google/home/dgfranklin/.linuxbrew/share/zsh/help
 
