@@ -22,8 +22,8 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 
 # Speed up FZF
 #
-export FZF_DEFAULT_COMMAND=$HOME/.fzf_default_command
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# export FZF_DEFAULT_COMMAND=$HOME/.fzf_default_command
+# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export VISUAL='vim'
 export EDITOR='$VISUAL'
