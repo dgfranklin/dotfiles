@@ -16,7 +16,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/fzf',
-Plug 'Konfekt/FastFold'
+" Plug 'Konfekt/FastFold'
 Plug 'majutsushi/tagbar'
 Plug 'leafgarland/typescript-vim'
 Plug 'nelstrom/vim-visual-star-search'
@@ -32,8 +32,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'fmoralesc/vim-pad'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-Plug 'Alok/notational-fzf-vim'
 Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'vimwiki/vimwiki'
 
 " Source env-specific plugins (since we can only have 1)
 let env_specific_plug_source=expand('~/.vimrc_plug_local')
@@ -75,8 +75,8 @@ set backspace=indent,eol,start
 
 set ruler
 
-set foldmethod=syntax
-let g:fastfold_fold_command_suffixes = []
+" set foldmethod=syntax
+" let g:fastfold_fold_command_suffixes = []
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -158,8 +158,9 @@ if &term =~ '^screen' && !has('nvim')
     set ttymouse=xterm2
 endif
 "
-" Powerline specific settings
-set hidden
+
+"Powerline specific settings
+ set hidden
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#tabline#fnamemod = ':t'

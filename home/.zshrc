@@ -17,6 +17,8 @@ fi
 # source plugins and add commands to the PATH
 zplug load
 
+autoload -U compinit
+compinit
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
@@ -55,8 +57,5 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 if [ -f ~/.zshrc_local ]; then
     source ~/.zshrc_local
 fi
-
-# Must happen after local path updated to include powerline (if installed).
-[ -f ~/.powerline/bindings/zsh/powerline.zsh ] && source ~/.powerline/bindings/zsh/powerline.zsh
 
 homeshick --quiet refresh
