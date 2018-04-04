@@ -59,3 +59,12 @@ if [ -f ~/.zshrc_local ]; then
 fi
 
 homeshick --quiet refresh
+
+function update-x11-forwarding
+{
+    if [ -z "$STY" -a -z "$TMUX" ]; then
+        echo $DISPLAY > ~/.display.txt
+    else
+        export DISPLAY=`cat ~/.display.txt`
+    fi
+}
