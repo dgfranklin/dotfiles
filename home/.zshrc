@@ -2,7 +2,6 @@
 source "${HOME}/.zplug/init.zsh"
 
 zplug "Tarrasch/zsh-bd"
-zplug "themes/sorin", as:theme, from:oh-my-zsh
 zplug "lib/history", from:oh-my-zsh
 zplug "lib/clipboard", from:oh-my-zsh
 zplug "modules/utility", from:prezto
@@ -21,6 +20,11 @@ autoload -U compinit
 compinit
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
+
+# Prompt
+autoload colors; colors;
+setopt prompt_subst
+PROMPT='%{$fg[cyan]%}%c %(!.%{$fg_bold[red]%}#.%{$fg_bold[green]%}❯)%{$reset_color%} '
 
 # Speed up FZF
 #
