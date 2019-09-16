@@ -20,3 +20,5 @@
     path = ~/.gitconfig_local
 [pull]
 	rebase = true
+[http]
+	cookiefile = ~/.gitcookies
