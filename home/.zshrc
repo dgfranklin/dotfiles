@@ -16,8 +16,8 @@ fi
 # source plugins and add commands to the PATH
 zplug load
 
-autoload -U compinit
-compinit
+autoload -U +X compinit && compinit
+autoload -U bashcompinit && bashcompinit
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
