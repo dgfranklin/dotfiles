@@ -36,7 +36,6 @@ export EDITOR='$VISUAL'
 export P4DIFF='vimdiff -R'
 export P4MERGE='vimdiff'
 
-export HISTFILE="$HOME/.zhistory"
 
 
 bindkey -v
