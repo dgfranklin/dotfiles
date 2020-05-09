@@ -4,3 +4,6 @@
 [submodule "fonts"]
 	path = fonts
 	url = git@github.com:powerline/fonts.git
+[submodule "vim-plug"]
+	path = vim-plug
+	url = git@github.com:junegunn/vim-plug.git
