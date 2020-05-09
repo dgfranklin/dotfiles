@@ -1,13 +1,5 @@
 set shell=/bin/zsh
 
-" Setting up Vundle - the vim plugin bundler
-" Load vim-plug
-let plug_path = has('nvim') ? "~/.config/nvim/autoload/plug.vim" : "~/.vim/autoload/plug.vim"
-if empty(glob(plug_path))
-         execute '!curl -fLo ' . plug_path . ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-         let install_bundles=0
-endif
-"
 set nocompatible
 
 call plug#begin()
@@ -16,7 +8,6 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/fzf',
-" Plug 'Konfekt/FastFold'
 Plug 'majutsushi/tagbar'
 Plug 'leafgarland/typescript-vim'
 Plug 'nelstrom/vim-visual-star-search'
@@ -29,7 +20,6 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'fmoralesc/vim-pad'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'JamshedVesuna/vim-markdown-preview'
