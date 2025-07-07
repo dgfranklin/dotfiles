@@ -36,8 +36,6 @@ export EDITOR='$VISUAL'
 export P4DIFF='vimdiff -R'
 export P4MERGE='vimdiff'
 
-
-
 bindkey -v
 bindkey '^?' backward-delete-char
 
@@ -75,3 +73,4 @@ function update-x11-forwarding
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
