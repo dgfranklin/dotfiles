@@ -11,14 +11,10 @@
 	ll = log --stat
 	lg = log
 	lp = log -p
-	co = checkout
-[diff]
-	tool = vimdiff
-[merge]
-    tool = vimdiff
-[include]
-    path = ~/.gitconfig_local
+    co = checkout
 [pull]
 	rebase = true
 [http]
 	cookiefile = ~/.gitcookies
+[include]
+    path = ~/.gitconfig_local
