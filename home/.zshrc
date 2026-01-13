@@ -21,19 +21,19 @@ autoload -U bashcompinit && bashcompinit
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
-# Prompt
-autoload colors; colors;
-setopt prompt_subst
-PROMPT='%{$fg[cyan]%}%c %(!.%{$fg_bold[red]%}#.%{$fg_bold[green]%}❯)%{$reset_color%} '
+# Prompt - use starship if available, otherwise fall back to simple prompt
+[[ -f ~/.starship.zsh ]] && source ~/.starship.zsh
+if [[ -z "$STARSHIP_SHELL" ]]; then
+  autoload colors; colors;
+  setopt prompt_subst
+  PROMPT='%{$fg[cyan]%}%c %(!.%{$fg_bold[red]%}#.%{$fg_bold[green]%}❯)%{$reset_color%} '
+fi
 
 # Speed up FZF
 #
 # export FZF_DEFAULT_COMMAND=$HOME/.fzf_default_command
 # export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-export VISUAL='vim'
-export EDITOR='$VISUAL'
-export P4DIFF='vimdiff -R'
 export P4MERGE='vimdiff'
 
 bindkey -v
@@ -74,3 +74,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Evaluate after sourcing zshrrc_local incase nvim installed 
+if (( $+commands[nvim] )); then
+  export VISUAL='nvim'
+else
+  export VISUAL='vim'
+fi
+export EDITOR="$VISUAL"
