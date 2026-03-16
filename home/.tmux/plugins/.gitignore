@@ -1,0 +1,6 @@
+# TPM installs plugins here at runtime — don't track them
+*
+# Track the tpm symlink (points to repo root submodule)
+!tpm
+# Track this .gitignore
+!.gitignore
