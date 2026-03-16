@@ -4,14 +4,15 @@
 _setup_starship() {
   local starship_bin=""
 
-  # Check if starship is already in PATH
-  if (( $+commands[starship] )); then
-    starship_bin="starship"
-  # Check common local install locations
-  elif [[ -x "$HOME/.local/bin/starship" ]]; then
+  # Check common local install locations first (more reliable than $+commands
+  # since PATH may not be fully set up yet, e.g. in tmux shells)
+  if [[ -x "$HOME/.local/bin/starship" ]]; then
     starship_bin="$HOME/.local/bin/starship"
   elif [[ -x "$HOME/.cargo/bin/starship" ]]; then
     starship_bin="$HOME/.cargo/bin/starship"
+  # Fall back to PATH check
+  elif (( $+commands[starship] )); then
+    starship_bin="starship"
   fi
 
   # If not found, attempt to install to ~/.local/bin
