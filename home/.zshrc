@@ -1,3 +1,10 @@
+# Propagate truecolor when tmux client is Ghostty
+if [ -n "$TMUX" ] && [ -z "$COLORTERM" ]; then
+  if [ "$(tmux display-message -p '#{client_termname}' 2>/dev/null)" = "xterm-ghostty" ]; then
+    export COLORTERM=truecolor
+  fi
+fi
+
 # load zplug
 source "${HOME}/.zplug/init.zsh"
 
@@ -34,6 +41,7 @@ fi
 # export FZF_DEFAULT_COMMAND=$HOME/.fzf_default_command
 # export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
+export P4DIFF='vimdiff -R'
 export P4MERGE='vimdiff'
 
 bindkey -v
@@ -73,9 +81,8 @@ function update-x11-forwarding
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# Evaluate after sourcing zshrrc_local incase nvim installed 
+# Evaluate after sourcing zshrc_local in case nvim installed
 if (( $+commands[nvim] )); then
   export VISUAL='nvim'
 else
