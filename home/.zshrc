@@ -82,3 +82,5 @@ else
   export VISUAL='vim'
 fi
 export EDITOR="$VISUAL"
+
+(( $+commands[direnv] )) && eval "$(direnv hook zsh)"
