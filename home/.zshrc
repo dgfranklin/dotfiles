@@ -5,23 +5,24 @@ if [ -n "$TMUX" ] && [ -z "$COLORTERM" ]; then
   fi
 fi
 
-# load zplug
-source "${HOME}/.zplug/init.zsh"
+# load zplug (interactive only — zplug misdetects piped stdin as deprecated syntax)
+if [[ -o interactive ]]; then
+  source "${HOME}/.zplug/init.zsh"
 
-zplug "Tarrasch/zsh-bd"
-zplug "lib/history", from:oh-my-zsh
-zplug "lib/clipboard", from:oh-my-zsh
-zplug "modules/utility", from:prezto
+  zplug "Tarrasch/zsh-bd"
+  zplug "lib/history", from:oh-my-zsh
+  zplug "lib/clipboard", from:oh-my-zsh
+  zplug "modules/utility", from:prezto
 
+  # zplug check returns true if all packages are installed
+  # Therefore, when it returns false, run zplug install
+  if ! zplug check; then
+      zplug install
+  fi
 
-# zplug check returns true if all packages are installed
-# Therefore, when it returns false, run zplug install
-if ! zplug check; then
-    zplug install
+  # source plugins and add commands to the PATH
+  zplug load
 fi
-
-# source plugins and add commands to the PATH
-zplug load
 
 autoload -U +X compinit && compinit
 autoload -U bashcompinit && bashcompinit
@@ -91,3 +92,5 @@ fi
 export EDITOR="$VISUAL"
 
 (( $+commands[direnv] )) && eval "$(direnv hook zsh)"
+
+# >>> cc-clip PATH (do not edit) >>>\nexport PATH="/home/david.franklin/.local/bin:/opt/databricks/cgroup_shims:/opt/databricks/command_shims:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/cuda/bin"\n# <<< cc-clip PATH (do not edit) <<<\n

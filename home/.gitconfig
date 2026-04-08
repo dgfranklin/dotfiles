@@ -3,6 +3,8 @@
 	name = David Franklin
 [core]
 	excludesfile = ~/.gitignore_global
+	hooksPath = /home/david.franklin/.databricks/githooks
+	trustctime = false
 [push]
     default = simple
 [alias]
@@ -18,3 +20,9 @@
 	cookiefile = ~/.gitcookies
 [include]
     path = ~/.gitconfig_local
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
